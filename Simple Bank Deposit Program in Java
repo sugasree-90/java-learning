@@ -2,14 +2,16 @@ import java.util.Scanner;
 class Main{
     public static void main(String args[]){
         Scanner sc= new Scanner(System.in);
-        Deposite d=new Deposite();
+      //  Deposite d=new Deposite();
+         Withdraw d = new Withdraw();
         d.setBalance(1000.0f);
         System.out.println("deposite your money...............");
         float m=sc.nextFloat();
         d.setDepositAmount(m);
         System.out.println("your deposited amount is:"+d.getDepositAmount());
-        d.setBalance(d.getBalance() + d.getDepositAmount());
-        System.out.println("your total amount is:"+d.getBalance());
+        d.TotalBalance();
+         d.withdraw(sc);
+       
         
     }
 }
@@ -28,6 +30,27 @@ class Deposite{
     }
     public void setDepositAmount(float depositAmount){
         this.depositAmount=depositAmount;
+        
+    }
+    public void TotalBalance(){
+        float total_amount=getBalance()+getDepositAmount();
+        System.out.println("total amount is:"+total_amount);
+    }
+     public float getTotalAmount() {
+        return getBalance() + getDepositAmount();
+    }
+}
+class Withdraw extends Deposite{
+    public void withdraw(Scanner sc){
+        float total_amount = getTotalAmount();
+        System.out.println("enter how much money you want to withdraw...");
+        float draw=sc.nextInt();
+        if(draw<=total_amount){
+            float remaining=total_amount-draw;
+            System.out.println("after withdrawing ,left amount is:"+ remaining);
+        }else{
+            System.out.println("Insufficient balance to withdraw"+draw);
+        }
         
     }
     
