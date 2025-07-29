@@ -1,0 +1,38 @@
+package com.student;
+
+public class Stu {
+	private String name;
+    int roll_no;
+    protected String course;
+	public int marks;
+	
+	void setdetailes(String name,int roll,String course,int marks) {
+		this.name=name;
+		this.roll_no=roll;
+		this.course=course;
+		this.marks=marks;
+	}
+	void displaydetailes() {
+		System.out.println("Name:"+name+"\nRoll_No:"+roll_no+"\nMarks:  "+marks);
+	}
+}
+class StudentOperations{                          
+	                                                            //You are writing a method call (s.setdetailes(...)) directly 
+	public void simple() {
+	Stu s=new Stu();
+	s.setdetailes("SugaSree",11,"MCA",67);
+	s.displaydetailes(); 
+	System.out.println("please");
+	}
+}                                                  //inside the class body, outside of any method or constructor — and that is NOT allowed in Java.
+	
+	
+	
+	
+	                                        /* Java Rule:
+                                            You can only write method calls inside methods, constructors, or initializer blocks.
+                                                You cannot write statements like s.setdetailes(...) directly inside the class.*/
+	
+
+
+
