@@ -1,0 +1,8 @@
+package com.student;
+
+public class Student {
+	public static void main(String args[]) {
+		StudentOperations st=new StudentOperations();
+		st.simple();
+	}
+}
